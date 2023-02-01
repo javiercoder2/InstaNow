@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar';
+import HeroSection from './components/HeroSection';
+import InfoSection from './components/InfoSection'
+import { homeObjOne, homeObjThree, homeObjTwo,homeObjFour  } from './components/InfoSection/Data';
+import Services from './components/Services';
+import SigninPage from './pages/signin';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+
+    <Sidebar/>
+      <Navbar/>
+      <HeroSection/>
+      <InfoSection {...homeObjOne}/>
+      <InfoSection {...homeObjTwo}/>
+      <Services/>
+      <InfoSection {...homeObjThree}/>
+      <InfoSection {...homeObjFour}/>
+      <Footer/>
+    </Router>
   );
 }
 
